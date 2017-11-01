@@ -17,20 +17,21 @@ public class KeyInput implements KeyListener{
         int key = e.getKeyCode();
 
         if (key == KeyEvent.VK_LEFT) {
-            player.setX(player.getX() - 8);
+            player.setLeft(true);
         }
 
         if (key == KeyEvent.VK_RIGHT) {
-            player.setX(player.getX() + 8); 
+            player.setRight(true);
         }
 
         if (key == KeyEvent.VK_UP) {
-            player.setY(player.getY() - 8);       
+            player.setUp(true);
         }
 
         if (key == KeyEvent.VK_DOWN) {
-            player.setY(player.getY() + 8);    
+            player.setDown(true);
         }
+        
     }
 
     public void keyTyped(KeyEvent e) {   //Does nothing
@@ -38,7 +39,23 @@ public class KeyInput implements KeyListener{
     }
 
     public void keyReleased(KeyEvent e) {   //Does nothing
-        
+        int key = e.getKeyCode();
+
+        if (key == KeyEvent.VK_LEFT) {
+            player.setLeft(false);
+        }
+
+        if (key == KeyEvent.VK_RIGHT) {
+            player.setRight(false);
+        }
+
+        if (key == KeyEvent.VK_UP) {
+            player.setUp(false);
+        }
+
+        if (key == KeyEvent.VK_DOWN) {
+            player.setDown(false);
+        }
     }
     
 }

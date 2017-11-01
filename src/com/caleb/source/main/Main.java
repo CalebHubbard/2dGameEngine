@@ -53,15 +53,15 @@ public class Main extends Canvas implements Runnable{
         graphics = bs.getDrawGraphics();
         
         if (!created) {
-            map = new Map();
-            player = new Player(sprites, 0, 0);
+            map = new Map(0, 0);
+            player = new Player(sprites, 0, 0, (this.getWidth() / 2) - 32, (this.getHeight() / 2) - 32);
             keyInput = new KeyInput(player);
             addKeyListener(keyInput);
             created = true;
         }
         /////////////////////////////////////////////////
-
-        map.render(graphics);
+        graphics.fillRect(0, 0, this.getWidth(), this.getHeight());
+        map.render(graphics, player.getXOffset(), player.getYOffset());
         player.render(graphics);
         
         /////////////////////////////////////////////////
