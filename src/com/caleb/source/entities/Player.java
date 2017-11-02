@@ -4,7 +4,6 @@ import java.awt.Graphics;
 
 public class Player extends Tile{
     
-    Graphics graphics;
     SpriteObjects sprites;
     public int x, y, xOffset, yOffset;
     public boolean up, down, left, right;
