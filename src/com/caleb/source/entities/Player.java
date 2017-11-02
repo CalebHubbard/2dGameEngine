@@ -8,36 +8,29 @@ public class Player extends Tile{
     public int x, y, xOffset, yOffset;
     public boolean up, down, left, right;
     
-    public Player(SpriteObjects sprites, int xPos, int yPos, int xOffset, int yOffset) {
+    public Player(SpriteObjects sprites, int xPos, int yPos) {
         super(sprites, yPos, yPos);
         this.sprites = sprites;
         this.x = xPos;
         this.y = yPos;
-        this.xOffset = xOffset;
-        this.yOffset = yOffset;
-        
     }
 
     public void tick() {
         if (up) {
             y-=8;
-            yOffset+=8;
         }
         if (down) {
             y+=8;
-            yOffset-=8;
         }
         if (left) {
             x-=8;
-            xOffset+=8;
         }
         if (right) {
             x+=8;
-            xOffset-=8;
         }
     }
 
-    public void render(Graphics graphics) {
+    public void render(Graphics graphics, int xOffset, int yOffset) {
         graphics.drawImage(sprites.player, x + xOffset, y + yOffset, 64, 64, null);        
     }
     
@@ -87,21 +80,5 @@ public class Player extends Tile{
     
     public void setY(int y) {
         this.y = y;
-    }
-    
-    public int getXOffset() {
-        return xOffset;
-    }
-    
-    public void setXOffset(int xOffset) {
-        this.xOffset = xOffset;
-    }
-    
-    public int getYOffset() {
-        return yOffset;
-    }
-
-    public void setYOffset(int yOffset) {
-        this.yOffset = yOffset;
     }
 }

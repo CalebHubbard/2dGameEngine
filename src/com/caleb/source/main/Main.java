@@ -26,6 +26,7 @@ public class Main extends Canvas implements Runnable{
     public Player player;
     public static Window window;
     public KeyInput keyInput;
+    public Camera camera;
     
     public void init() {   //Called as soon as the program runs
         setBackground(Color.BLACK);
@@ -53,17 +54,18 @@ public class Main extends Canvas implements Runnable{
         graphics = bs.getDrawGraphics();
         
         if (!created) {
+            camera = new Camera(0, 0);
             map = new Map(0, 0);
-            player = new Player(sprites, 0, 0, (this.getWidth() / 2) - 32, (this.getHeight() / 2) - 32);
-            keyInput = new KeyInput(player);
+            player = new Player(sprites, (this.getWidth() / 2) - 32, (this.getHeight() / 2) - 32);
+            keyInput = new KeyInput(player, camera);
             addKeyListener(keyInput);
             created = true;
         }
         /////////////////////////////////////////////////
         
         graphics.fillRect(0, 0, this.getWidth(), this.getHeight());
-        map.render(graphics, player.getXOffset(), player.getYOffset());
-        player.render(graphics);
+        map.render(graphics, camera.getXOffset(), camera.getYOffset());
+        player.render(graphics, camera.getXOffset(), camera.getYOffset());
         
         /////////////////////////////////////////////////
         graphics.dispose();
@@ -74,6 +76,7 @@ public class Main extends Canvas implements Runnable{
         
         player.tick();
         map.tick();
+        camera.tick();
         
     }
 
