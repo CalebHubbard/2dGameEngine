@@ -60,6 +60,7 @@ public class Main extends Canvas implements Runnable{
             created = true;
         }
         /////////////////////////////////////////////////
+        
         graphics.fillRect(0, 0, this.getWidth(), this.getHeight());
         map.render(graphics, player.getXOffset(), player.getYOffset());
         player.render(graphics);
