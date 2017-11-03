@@ -14,11 +14,21 @@ public class Map extends Entity{
         this.yOffset = yOffset;
     }
 
-    int[][] map = {   //2d array map
+    public int[][] map = {   //2d array map
             {1,0,1,0,1,1,1,1,1,1,1,1,1,1,1},
             {0,1,1,1,0,2,2,2,2,2,2,2,2,2,2},
             {0,1,2,1,0,0,0,0,0,0,0,0,0,0,0},
             {0,1,1,1,0,1,1,1,1,1,1,1,1,1,1},
+            {0,1,1,1,0,2,2,2,2,2,2,2,2,2,2},
+            {0,1,2,1,0,0,0,0,0,0,0,0,0,0,0},
+            {0,1,1,1,0,1,1,1,1,1,1,1,1,1,1},
+            {0,1,1,1,0,2,2,2,2,2,2,2,2,2,2},
+            {0,1,2,1,0,0,0,0,0,0,0,0,0,0,0},
+            {0,1,1,1,0,1,1,1,1,1,1,1,1,1,1},
+            {0,1,1,1,0,2,2,2,2,2,2,2,2,2,2},
+            {0,1,2,1,0,0,0,0,0,0,0,0,0,0,0},
+            {0,1,1,1,0,1,1,1,1,1,1,1,1,1,1},
+            {2,2,2,2,2,2,2,2,2,2,2,2,2,2,2},
             {1,0,0,0,1,0,0,0,0,0,0,0,0,0,0}
         };
 
@@ -46,6 +56,8 @@ public class Map extends Entity{
                     graphics.fillRect((i*Main.TILESIZE) + xOffset, (j*Main.TILESIZE) + yOffset, Main.TILESIZE, Main.TILESIZE);
                     
                 }
+                graphics.setColor(Color.black);
+                graphics.drawRect((i*Main.TILESIZE) + xOffset, (j*Main.TILESIZE) + yOffset, Main.TILESIZE, Main.TILESIZE);
             }
         }
     }
