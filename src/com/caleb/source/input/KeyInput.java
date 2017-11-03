@@ -3,7 +3,6 @@ package com.caleb.source.input;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import com.caleb.source.entities.Player;
-import com.caleb.source.main.Main;
 import com.caleb.source.window.Camera;
 
 public class KeyInput implements KeyListener{
