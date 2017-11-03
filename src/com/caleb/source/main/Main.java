@@ -21,7 +21,7 @@ public class Main extends Canvas implements Runnable{
     public boolean created = false;
     public Thread thread;
     public BufferStrategy bs;
-    public SpriteObjects sprites = new SpriteObjects();
+    public SpriteObjects sprites;
     public Map map;
     public Player player;
     public static Window window;
@@ -29,7 +29,16 @@ public class Main extends Canvas implements Runnable{
     public Camera camera;
     
     public void init() {   //Called as soon as the program runs
-        setBackground(Color.BLACK);
+        sprites = new SpriteObjects();
+        
+        bs = this.getBufferStrategy();
+        
+        camera = new Camera(0, 0);
+        map = new Map(sprites, 0, 0);
+        player = new Player(sprites, (this.getWidth() / 2) - TILESIZE/2, (this.getHeight() / 2) - TILESIZE/2);
+        keyInput = new KeyInput(player, camera);
+        addKeyListener(keyInput);
+        this.requestFocus();
     }
     
     public synchronized void start() {   //Called after the frame is made (opens thread)
@@ -53,14 +62,6 @@ public class Main extends Canvas implements Runnable{
 
         graphics = bs.getDrawGraphics();
         
-        if (!created) {
-            camera = new Camera(0, 0);
-            map = new Map(0, 0);
-            player = new Player(sprites, (this.getWidth() / 2) - 32, (this.getHeight() / 2) - 32);
-            keyInput = new KeyInput(player, camera);
-            addKeyListener(keyInput);
-            created = true;
-        }
         /////////////////////////////////////////////////
         
         graphics.fillRect(0, 0, this.getWidth(), this.getHeight());

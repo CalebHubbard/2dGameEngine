@@ -1,6 +1,9 @@
 package com.caleb.source.entities;
 
 import java.awt.Graphics;
+import java.awt.image.BufferedImage;
+
+import com.caleb.source.entities.tiles.Tile;
 
 public class Player extends Tile{
     
@@ -32,6 +35,14 @@ public class Player extends Tile{
 
     public void render(Graphics graphics, int xOffset, int yOffset) {
         graphics.drawImage(sprites.player, x + xOffset, y + yOffset, 64, 64, null);        
+    }
+    
+    public boolean isSolid() {
+        return true;
+    }
+    
+    public BufferedImage getImage() {
+        return sprites.player;
     }
     
     public void setUp(boolean up) {

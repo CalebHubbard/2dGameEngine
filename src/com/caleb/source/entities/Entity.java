@@ -7,5 +7,4 @@ public abstract class Entity {
     public abstract void tick();
     
     public abstract void render(Graphics graphics, int xOffset, int yOffset);
-
 }
