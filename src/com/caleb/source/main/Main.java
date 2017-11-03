@@ -79,16 +79,16 @@ public class Main extends Canvas implements Runnable{
         map.tick();
         camera.tick();
         
-        if (player.getX() <= this.getWidth() / 2) {
+        if (player.getX() <= (this.getWidth() / 2) - TILESIZE/2)  {
             camera.setXOffset(0); 
         }
-        if (player.getY() <= this.getHeight() / 2) {
+        if (player.getY() <= (this.getHeight() / 2) - TILESIZE/2) {
             camera.setYOffset(0);
         }
-        if (player.getX() >= (map.map[0].length*TILESIZE) - (this.getWidth() / 2)) {
+        if (player.getX() >= (map.map[0].length*TILESIZE) - (this.getWidth() / 2) - TILESIZE/2) {
             camera.setXOffset(-((map.map[0].length*TILESIZE) - (this.getWidth())));
         }
-        if (player.getY() >= (map.map.length*TILESIZE) - (this.getHeight() / 2)) {
+        if (player.getY() >= (map.map.length*TILESIZE) - (this.getHeight() / 2) - TILESIZE/2) {
             camera.setYOffset(-((map.map.length*TILESIZE) - (this.getHeight())));
         }
         
